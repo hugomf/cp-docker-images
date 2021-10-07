@@ -15,7 +15,7 @@
 
 # Builds a docker image for the Confluent Schema Registry.
 
-FROM confluentinc/cp-base
+FROM hugomf/cp-base-arm64
 
 ARG COMMIT_ID=unknown
 LABEL io.confluent.docker.git.id=$COMMIT_ID

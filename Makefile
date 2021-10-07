@@ -12,17 +12,17 @@ CONFLUENT_VERSION ?= ${CONFLUENT_MAJOR_VERSION}.${CONFLUENT_MINOR_VERSION}.${CON
 
 KAFKA_VERSION ?= 5.3.3
 
-COMPONENTS := base zookeeper kafka server kafka-rest schema-registry kafka-connect-base kafka-connect server-connect-base server-connect enterprise-control-center kafkacat enterprise-replicator enterprise-replicator-executable enterprise-kafka kafka-mqtt
+COMPONENTS := base zookeeper server schema-registry
 COMMIT_ID := $(shell git rev-parse --short HEAD)
 MYSQL_DRIVER_VERSION := 5.1.39
 
 # Set this variable externally to point at a different repo, such as when building SNAPSHOT images
-CONFLUENT_PACKAGES_REPO ?= https://packages.confluent.io
+CONFLUENT_PACKAGES_REPO ?= http://packages.confluent.io
 
 # Set to false for public releases
 ALLOW_UNSIGNED ?= false
 
-REPOSITORY ?= confluentinc
+REPOSITORY ?= hugomf
 
 # Platform-specific version labels for SNAPSHOT packaging. Not necessary when building from public releases.
 CONFLUENT_MVN_LABEL ?=

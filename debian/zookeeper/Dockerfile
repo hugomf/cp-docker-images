@@ -13,7 +13,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-FROM confluentinc/cp-base
+FROM hugomf/cp-base-arm64
 
 EXPOSE 2181 2888 3888
 
@@ -26,6 +26,8 @@ MAINTAINER partner-support@confluent.io
 LABEL io.confluent.docker=true
 
 ENV COMPONENT=zookeeper
+
+RUN echo "confluent-kafka-${SCALA_VERSION}=${CONFLUENT_VERSION}${CONFLUENT_PLATFORM_LABEL}-${CONFLUENT_DEB_VERSION}"
 
 RUN echo "===> installing ${COMPONENT}..." \
     && apt-get update && apt-get install -y confluent-kafka-${SCALA_VERSION}=${CONFLUENT_VERSION}${CONFLUENT_PLATFORM_LABEL}-${CONFLUENT_DEB_VERSION} \
